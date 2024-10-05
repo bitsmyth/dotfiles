@@ -118,3 +118,5 @@ fi
 
 # enable fzf - fuzzy finder
 eval "$(fzf --zsh)"
+
+export BAT_THEME="1337"
