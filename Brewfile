@@ -1,3 +1,7 @@
+tap "FelixKratz/formulae"
+brew "sketchybar"
+brew "borders"
+
 brew "neovim"
 brew "jesseduffield/lazygit/lazygit"
 
