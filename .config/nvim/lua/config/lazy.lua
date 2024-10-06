@@ -21,6 +21,7 @@ require("lazy").setup({
 
     -- custom imports
     { import = "lazyvim.plugins.extras.lang.ruby" },
+    { import = "lazyvim.plugins.extras.lang.markdown" },
 
     -- import/override with your plugins
     { import = "plugins" },
