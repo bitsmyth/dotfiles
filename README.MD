@@ -3,7 +3,7 @@
 ## zsh
 
 <details>
-<summary>[rails](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rails)</summary>
+<summary>rails</summary>
 
 This plugin adds completion for [Ruby On Rails Framework](https://rubyonrails.org/) and
 [Rake](https://ruby.github.io/rake/) commands, as well as some aliases for logs and environment variables.
