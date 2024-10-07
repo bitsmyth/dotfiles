@@ -11,4 +11,6 @@ config.window_decorations = "RESIZE"
 config.font_size = 16
 config.font = wezterm.font("JetBrains Mono")
 
+config.color_scheme = "tokyonight_storm"
+
 return config

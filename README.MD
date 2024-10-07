@@ -1,4 +1,11 @@
-# cheatsheet
+## instructions
+
+```
+./setup
+p10k configure
+```
+
+## cheatsheet
 
 ## zsh
 

@@ -42,7 +42,7 @@ def link_configuration_directories
     current_directory = File.join(config_directory, directory)
     current_directory_repo = File.join(config_directory_repo, directory)
 
-    if Dir.exists?(current_directory)
+    if Dir.exist?(current_directory)
       FileUtils.mv(current_directory, "#{current_directory}.backup_#{TIMESTAMP}")
     end
 
