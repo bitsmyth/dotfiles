@@ -16,8 +16,9 @@ plugins=(git rails)
 zstyle ':omz:update' mode reminder
 
 source $ZSH/oh-my-zsh.sh
-source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 source $HOME/.p10k.zsh
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
