@@ -2,7 +2,7 @@
 
 require "fileutils"
 
-TIMESTAMP = Time.zone.now.strftime("%d%m%Y_%H%H%S")
+TIMESTAMP = Time.now.strftime("%d%m%Y_%H%H%S")
 EXCLUDED_FILES = [
   ".DS_Store"
 ]
@@ -24,7 +24,7 @@ def link_configuration_files
     end
 
     FileUtils.cp(to_backup_file, file_backup) if File.exist?(to_backup_file)
-    FileUtils.ln_sf(file_repo, file_home) if File.readlink(file_home) != file_repo
+    FileUtils.ln_sf(file_repo, file_home)
   end
 end
 
@@ -47,7 +47,7 @@ def link_configuration_directories
     end
 
     FileUtils.cp_r(to_backup_directory, directory_backup) if Dir.exist?(to_backup_directory)
-    FileUtils.ln_sf(directory_repo, directory_home) if File.readlink(directory_home) != directory_repo
+    FileUtils.ln_sf(directory_repo, directory_home)
   end
 end
 
