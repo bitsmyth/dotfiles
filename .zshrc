@@ -12,13 +12,12 @@ export MISE_NODE_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/.default-npm-packa
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git rails)
+plugins=(zsh-syntax-highlighting git rails)
 zstyle ':omz:update' mode reminder
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.p10k.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
