@@ -1,2 +1,5 @@
-lefthook
 debug
+lefthook
+standard
+erb-formatter
+rubocop
