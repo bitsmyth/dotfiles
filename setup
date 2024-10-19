@@ -1,7 +1,11 @@
 #!/usr/bin/env ruby
 
 def install_brew
-  # WIP
+  system '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+end
+
+def install_brew_depenedencies
+  system "brew bundle install --file=Brewfile"
 end
 
 def install_source_dependencies
@@ -9,10 +13,6 @@ def install_source_dependencies
   system "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k"
   system "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
   system "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
-end
-
-def install_brew_depenedencies
-  system "brew bundle install --file=Brewfile"
 end
 
 install_brew
