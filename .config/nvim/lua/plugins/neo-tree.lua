@@ -50,7 +50,7 @@ return {
     },
   },
   keys = {
-      {'<leader>e', '<Cmd>Neotree toggle<CR>', desc = 'Toggle filetree via neotree' },
-      {'<leader>ge', '<Cmd>Neotree git_status<CR>', desc = 'Toggle git status via neotree' }
+      {'<leader>e', '<Cmd>Neotree toggle<CR>', desc = 'Neotree' },
+      {'<leader>ge', '<Cmd>Neotree git_status<CR>', desc = 'Neotree Git Status' },
       }
 }
