@@ -35,8 +35,6 @@ require('lazy').setup({
 
   require 'plugins/cmp',
 
-  require 'plugins/tokyonight',
-
   require 'plugins/todo-comments',
 
   require 'plugins/mini',
@@ -45,7 +43,9 @@ require('lazy').setup({
 
   require 'plugins/neo-tree',
 
-  require 'plugins/lazy-git',
+  require 'plugins/lazygit',
+
+  require 'plugins/colorschema',
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
