@@ -1,11 +1,14 @@
 # XDG Base Directory Specification defines standard folders to store configuration, cache, data, and state files.
-# These environment variables ensure that applications store their files in the right places under our home directory.
-# It helps keep things organized and prevents clutter in the home directory.
+# Ensure that applications store their files in the right places under our home directory.
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_RUNTIME_DIR="$HOME/.cache/runtime"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+
+# Define paths for default package files used by the 'mise' application.
+export MISE_RUBY_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/.default-gems"
+export MISE_NODE_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/.default-npm-packages"
 
 export ZSH="$HOME/.oh-my-zsh"
 export BAT_THEME="1337"
