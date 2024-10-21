@@ -12,4 +12,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
+  keys = {
+      { "<leader>gg", "<cmd>LazyGit<cr>", desc = "git toggle Lazy[g]it" }
+      }
 }

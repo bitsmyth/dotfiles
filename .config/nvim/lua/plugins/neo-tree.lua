@@ -3,9 +3,10 @@
 
 return {
   'nvim-neo-tree/neo-tree.nvim',
+  lazy = false,
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+    'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
   },
   opts = {
@@ -35,7 +36,7 @@ return {
     },
     default_component_configs = {
       indent = {
-        with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+        with_expanders = true,
         expander_collapsed = '',
         expander_expanded = '',
         expander_highlight = 'NeoTreeExpander',
@@ -48,4 +49,8 @@ return {
       },
     },
   },
+  keys = {
+      {'<leader>e', '<Cmd>Neotree toggle<CR>', desc = 'Toggle filetree via neotree' },
+      {'<leader>ge', '<Cmd>Neotree git_status<CR>', desc = 'Toggle git status via neotree' }
+      }
 }
