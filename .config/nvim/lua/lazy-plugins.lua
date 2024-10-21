@@ -1,74 +1,47 @@
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
-require('lazy').setup({
-  -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+-- [[ Recursively load plugins from the 'plugins/' directory ]]
+-- This function will scan the 'plugins/' directory and load all
+-- Lua files, except those that start with an underscore (`_`).
+-- Files and directories with names starting with `_` are considered
+-- disabled and will be skipped. It supports a modular structure for
+-- plugin configuration.
+local function load_plugins()
+  local plugin_dir = vim.fn.stdpath 'config' .. '/lua/plugins'
+  local plugins = {}
 
-  -- NOTE: Plugins can also be added by using a table,
-  -- with the first argument being the link and the following
-  -- keys can be used to configure plugin behavior/loading/etc.
-  --
-  -- Use `opts = {}` to force a plugin to be loaded.
-  --
+  local stack = { plugin_dir }
 
-  -- modular approach: using `require 'path/name'` will
-  -- include a plugin definition from file lua/path/name.lua
+  while #stack > 0 do
+    local current_dir = table.remove(stack)
 
-  require 'plugins/gitsigns',
+    local handle = vim.loop.fs_scandir(current_dir)
+    if handle then
+      while true do
+        local name, item_type = vim.loop.fs_scandir_next(handle) -- Rename 'type' to 'item_type'
+        if not name then
+          break
+        end
 
-  require 'plugins/which-key',
+        local full_path = current_dir .. '/' .. name
+        if name:sub(1, 1) ~= '_' then
+          if item_type == 'directory' then
+            table.insert(stack, full_path)
+          elseif item_type == 'file' and name:match '%.lua$' then
+            local plugin_name = full_path:match('lua/(.+)%.lua$'):gsub('/', '.')
 
-  require 'plugins/telescope',
+            local ok, plugin_spec = pcall(require, plugin_name)
+            if ok and type(plugin_spec) == 'table' then
+              table.insert(plugins, plugin_spec)
+            end
+          end
+        end
+      end
+    end
+  end
 
-  require 'plugins/lspconfig',
+  return plugins
+end
 
-  require 'plugins/conform',
-
-  require 'plugins/cmp',
-
-  require 'plugins/todo-comments',
-
-  require 'plugins/mini',
-
-  require 'plugins/treesitter',
-
-  require 'plugins/neo-tree',
-
-  require 'plugins/lazygit',
-
-  require 'plugins/colorschema',
-
-  -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
-  -- init.lua. If you want these files, they are in the repository, so you can just download them and
-  -- place them in the correct locations.
-
-  -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
-  --
-  --  Here are some example plugins that I've included in the Kickstart repository.
-  --  Uncomment any of the lines below to enable them (you will need to restart nvim).
-  --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    This is the easiest way to modularize your config.
-  --
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
-}, {
+require('lazy').setup(load_plugins(), {
   ui = {
     icons = vim.g.have_nerd_font and {} or error 'nerd fonts not found, please install to continue',
   },

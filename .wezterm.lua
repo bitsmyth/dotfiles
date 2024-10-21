@@ -9,9 +9,9 @@ config.font_size = 14.0
 config.line_height = 1.16
 config.font = wezterm.font("SFMono Nerd Font", { weight = "Medium" })
 
--- match terminal to nvim github dark default theme
+-- match terminal to nvim github dark dimmed theme
 config.colors = {
-	background = "#151b23",
+	background = "#22272E",
 }
 
 config.color_scheme = "GitHub Dark"
