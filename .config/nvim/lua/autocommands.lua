@@ -18,3 +18,33 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
   end,
 })
+
+-- Close some filetypes with <q>
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('close-with-q', { clear = true }),
+  pattern = {
+    'PlenaryTestPopup',
+    'grug-far',
+    'help',
+    'lspinfo',
+    'notify',
+    'qf',
+    'spectre_panel',
+    'startuptime',
+    'tsplayground',
+    'neotest-output',
+    'checkhealth',
+    'neotest-summary',
+    'neotest-output-panel',
+    'dbout',
+    'gitsigns-blame',
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set('n', 'q', '<cmd>close<cr>', {
+      buffer = event.buf,
+      silent = true,
+      desc = 'Quit buffer',
+    })
+  end,
+})
