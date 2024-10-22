@@ -3,8 +3,3 @@
 -- Add any additional keymaps here
 
 -- Remove lazyvim defaults
-vim.keymap.del("n", "<leader>gg")
-vim.keymap.del("n", "<leader>gG")
-vim.keymap.del("n", "<leader>gl")
-vim.keymap.del("n", "<leader>gL")
-vim.keymap.del("n", "<leader>gf")
