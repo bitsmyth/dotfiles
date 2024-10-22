@@ -8,8 +8,3 @@ vim.keymap.del("n", "<leader>gG")
 vim.keymap.del("n", "<leader>gl")
 vim.keymap.del("n", "<leader>gL")
 vim.keymap.del("n", "<leader>gf")
-
--- NEOGIT
-vim.keymap.set("n", "<leader>gg", function()
-  require("neogit").open({ cwd = require("lazyvim.util").root.get() })
-end, { desc = "Neogit" })

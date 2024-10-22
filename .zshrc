@@ -37,3 +37,5 @@ eval "$(fzf --zsh)"
 eval "$(mise activate)"
 
 alias dot="cd ~/github/dotfiles"
+
+alias kick="NVIM_APPNAME=nvim-kickstart nvim"

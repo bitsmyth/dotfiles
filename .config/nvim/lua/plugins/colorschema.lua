@@ -1,25 +1,26 @@
 return {
   {
-    'projekt0n/github-nvim-theme',
-    name = 'github-theme',
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
     lazy = false,
     priority = 1000,
     config = function()
-      require('github-theme').setup {
+      require("github-theme").setup({
         specs = {
           github_dark_dimmed = {
-            -- set other panels to same color as editor
-            bg0 = '#22272E',
-            bg1 = '#22272E',
+            -- match with wezterm
+            bg0 = "#22272E",
+            bg1 = "#22272E",
           },
         },
         options = {
           styles = {
-            comments = 'italic',
+            comments = "italic",
           },
         },
-      }
-      vim.cmd 'colorscheme github_dark_dimmed'
+      })
+
+      vim.cmd("colorscheme github_dark_dimmed")
     end,
   },
 }
