@@ -5,6 +5,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_RUNTIME_DIR="$HOME/.cache/runtime"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="/Users/dev/Library/Application Support/Herd/bin:$PATH"
+
 
 # Define paths for default package files used by the 'mise' application.
 export MISE_RUBY_DEFAULT_PACKAGES_FILE="$XDG_CONFIG_HOME/mise/.default-gems"
@@ -39,3 +42,7 @@ eval "$(mise activate)"
 alias dot="cd ~/github/dotfiles"
 
 alias kick="NVIM_APPNAME=nvim-kickstart nvim"
+
+
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/dev/Library/Application Support/Herd/config/php/84/"
